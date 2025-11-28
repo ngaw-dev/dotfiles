@@ -1,0 +1,6 @@
+[user]
+    name = NGAW
+    email = ngaw.mobile.dev@gmail.com
+
+[core]
+    editor = nvim
