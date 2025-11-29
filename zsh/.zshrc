@@ -24,3 +24,5 @@ export PATH="$HOME/bin:$PATH"
 # Aliases
 alias ll='ls -la'
 alias gs='git status'
+
+alias copyq="QT_QPA_PLATFORM=xcb copyq"

@@ -4,3 +4,4 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 alias ll='ls -la'
+. "$HOME/.cargo/env"
