@@ -1,0 +1,8 @@
+alias ll='eza -lh'
+alias la='eza -lha'
+alias cat='bat'
+alias ls='exa'
+alias la='exa -la'
+alias lla='exa -lha'
+
+alias cat="batcat"

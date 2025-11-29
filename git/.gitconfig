@@ -4,3 +4,6 @@
 
 [core]
     editor = nvim
+
+[color]
+    ui = auto
