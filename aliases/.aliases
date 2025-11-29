@@ -1,8 +1,8 @@
 alias ll='eza -lh'
 alias la='eza -lha'
 alias cat='bat'
-alias ls='exa'
-alias la='exa -la'
-alias lla='exa -lha'
+alias ls='eza'
+alias la='eza -la'
+alias lla='eza -lha'
 
-alias cat="batcat"
+alias cat="bat"
