@@ -6,3 +6,10 @@ alias la='eza -la'
 alias lla='eza -lha'
 
 alias cat="bat"
+
+alias dexe='ddev exec'
+alias dpu='ddev exec php artisan test --env=testing' 
+alias pa='ddev exec php artisan'
+alias pa-clear='ddev php artisan cache:clear && ddev php artisan config:clear'
+
+alias supabase-restart="pnpx supabase stop && pnpx supabase start"

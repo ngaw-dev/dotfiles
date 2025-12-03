@@ -69,3 +69,6 @@ export EDITOR="nvim"
 # ------------------------------------------
 [ -f ~/.aliases ] && source ~/.aliases
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/ngaw/.antigravity/antigravity/bin:$PATH"
