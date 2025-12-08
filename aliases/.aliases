@@ -10,6 +10,8 @@ alias cat="bat"
 alias dexe='ddev exec'
 alias dpu='ddev exec php artisan test --env=testing' 
 alias pa='ddev exec php artisan'
-alias pa-clear='ddev php artisan cache:clear && ddev php artisan config:clear'
+alias pa-clear='ddev exec php artisan config:clear && ddev exec php artisan route:clear && ddev exec php artisan cache:clear'
 
 alias supabase-restart="pnpx supabase stop && pnpx supabase start"
+
+alias pint='ddev composer pint'
