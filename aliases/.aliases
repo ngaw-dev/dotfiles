@@ -7,6 +7,10 @@ alias lla='eza -lha'
 
 alias cat="bat"
 
+# Custom commands
+alias px='pnpm'
+
+## ddev commands
 alias dexe='ddev exec'
 alias dpu='ddev exec php artisan test --env=testing' 
 alias pa='ddev exec php artisan'
