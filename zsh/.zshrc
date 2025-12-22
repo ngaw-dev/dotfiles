@@ -41,3 +41,9 @@ setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 # Aliases
 # ------------------------------------------
 [ -f ~/.aliases ] && source ~/.aliases
+export PATH="/usr/local/opt/php@8.3/bin:$PATH"
+export PATH="/usr/local/opt/php@8.3/sbin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/amolsw/.antigravity/antigravity/bin:$PATH"
+export PATH="/usr/local/opt/node@22/bin:$PATH"

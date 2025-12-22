@@ -25,7 +25,13 @@ Before installing, ensure you have the following installed on your machine:
 
 2.  **Core Packages**
     ```bash
-    brew install git zsh neovim tmux kitty starship zoxide fzf stow
+    brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza
+    brew install php@8.3
+    brew install composer
+    brew install caddy
+    brew install --cask sequel-ace
+    brew install --cask antigravity
+    brew install --cask font-caskaydia-mono-nerd-font
     ```
 
 3.  **Oh My Zsh**
@@ -91,3 +97,8 @@ The repository is structured as Stow packages:
 - `starship/` -> `~/.config/starship.toml`
 - `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
+
+# Other software install
+- brew install node@22
+- brew install pnpm
+
