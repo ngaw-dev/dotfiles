@@ -18,6 +18,7 @@ path=(
   "$PNPM_HOME"
   "/opt/homebrew/sbin"
   "/opt/homebrew/bin"
+  "/usr/local/opt/node@22/bin"
   $path
 )
 

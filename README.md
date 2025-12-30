@@ -26,12 +26,17 @@ Before installing, ensure you have the following installed on your machine:
 2.  **Core Packages**
     ```bash
     brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza
-    brew install php@8.3
-    brew install composer
-    brew install caddy
+    brew install --cask warp
+    brew install --cask brave-browser
+    brew install --cask 1password
+    brew install --cask arc
+    brew install php@8.3 composer caddy node@22 pnpm
+    brew install --cask orbstack
     brew install --cask sequel-ace
     brew install --cask antigravity
-    brew install --cask font-caskaydia-mono-nerd-font
+    brew install ddev/ddev/ddev
+    brew install --cask font-caskaydia-cove-nerd-font
+    curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
     ```
 
 3.  **Oh My Zsh**
@@ -97,8 +102,3 @@ The repository is structured as Stow packages:
 - `starship/` -> `~/.config/starship.toml`
 - `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
-
-# Other software install
-- brew install node@22
-- brew install pnpm
-
