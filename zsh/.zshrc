@@ -10,6 +10,9 @@ export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
 [ -f ~/.paths ] && source ~/.paths
 
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # ------------------------------------------
 # Oh-My-Zsh (Plugins only, Warp handles UI)
 # ------------------------------------------
