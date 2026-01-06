@@ -1,4 +1,3 @@
-alias ll='eza -lh'
 alias la='eza -lha'
 alias cat='bat'
 alias ls='eza'
@@ -8,15 +7,7 @@ alias lla='eza -lha'
 alias px='pnpm'
 
 ## ddev commands
-alias dexe='ddev exec'
-alias dpu='ddev exec php artisan test --env=testing' 
-alias pa='ddev exec php artisan'
-alias pa-clear='ddev exec php artisan config:clear && ddev exec php artisan route:clear && ddev exec php artisan cache:clear'
-
-alias supabase-restart="pnpx supabase stop && pnpx supabase start"
-
-alias pint='ddev composer pint'
-
-alias ip4="curl -4 ifconfig.me/ip"
+alias pa='php artisan'
+alias pa-clear='php artisan config:clear && php artisan route:clear && php artisan cache:clear'
 
 alias www="cd /var/www"
