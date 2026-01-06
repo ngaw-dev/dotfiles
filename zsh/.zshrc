@@ -1,12 +1,13 @@
 # ==========================================
 #   ZSH — Warp Optimized Configuration
 # ==========================================
-export PLATFORM="mac"
+export PLATFORM="linux"
 export EDITOR="nvim"
 
 # ------------------------------------------
 # Paths
 # ------------------------------------------
+export PATH="$HOME/.local/bin:$PATH"
 [ -f ~/.paths ] && source ~/.paths
 
 # ------------------------------------------

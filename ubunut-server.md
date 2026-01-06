@@ -1,18 +1,13 @@
-# Fail2Ban
-```
+# Fail2Ban Setup
+```bash
 sudo apt update
 sudo apt install fail2ban -y
-
-```
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo nano /etc/fail2ban/jail.local
 ```
 
-```
-sudo nano /etc/fail2ban/jail.local
-```4. Configure the "port scanning" detector (sshd):
-While Fail2ban doesn't strictly "ban port scanning" by default (it usually bans failed logins), you can adjust the ssh jail to be very aggressive.
-Find the sshd section and make it look like this:
-```
+Configure the sshd jail to be aggressive against port scanning:
+```ini
 [sshd]
 enabled = true
 port    = ssh
@@ -22,32 +17,63 @@ bantime = 3600      # Ban for 1 hour
 findtime = 600      # If 3 failures occur within 10 minutes
 ```
 
-```
+```bash
 sudo systemctl restart fail2ban
 ```
 
-# Packages install
-
-```
+# User Setup
+```bash
 adduser amolw
-usermod -aG sudo ubuntu
+usermod -aG sudo amolw
+```
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+# Install Dependencies
+```bash
+# Basic packages
+sudo apt update
+sudo apt install -y git curl build-essential
 
-echo >> /home/amolw/.bashrc
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/amolw/.bashrc
+# Install Oh-My-Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Install zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Install starship prompt
+curl -Lo /tmp/starship.tar.gz https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz
+tar xzf /tmp/starship.tar.gz -C /tmp/
+mv /tmp/starship ~/.local/bin/starship
+chmod +x ~/.local/bin/starship
+
+# Install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# Install other tools via Homebrew (optional)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-brew install git zsh neovim tmux starship zoxide fzf stow fd bat eza
+brew install neovim tmux fzf fd bat eza
 brew install php@8.3 composer node@22 pnpm
-curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
 ```
 
-# Dotfiles
-git clone git@github.com:ngaw-dev/dotfiles.git
+# Dotfiles Setup
+```bash
+# Clone dotfiles
+git clone git@github.com:ngaw-dev/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 git checkout server
-```
+
+# Use stow to symlink configs
 stow aliases bash fzf git nvim starship tmux zsh
+
+# If you need to adopt existing configs
 stow --adopt zsh
 git restore .
+```
+
+# Reload Shell
+```bash
+source ~/.zshrc
 ```
