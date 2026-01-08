@@ -16,8 +16,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Standardized with zsh configuration for consistency
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -101,8 +102,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
+# Source custom aliases with error handling
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+elif [ -f ~/.aliases ]; then
+    # Fallback to ~/.aliases if ~/.bash_aliases doesn't exist
+    . ~/.aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -116,5 +121,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Homebrew - support both standard and Linuxbrew locations
+if [ -d /home/linuxbrew/.linuxbrew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [ -d "$HOME/.linuxbrew" ]; then
+    eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+fi

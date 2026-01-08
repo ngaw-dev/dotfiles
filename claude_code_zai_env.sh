@@ -1,5 +1,34 @@
 #!/bin/bash
 
+# ==============================================================================
+# Claude Code Z.AI Environment Setup Script
+# ==============================================================================
+#
+# Description:
+#   Automated installer for Claude Code CLI tool configured for Z.AI API
+#
+# Features:
+#   - Installs/updates Node.js (v22+) via nvm
+#   - Installs Claude Code CLI globally
+#   - Configures Z.AI API endpoint and authentication
+#   - Skips interactive onboarding
+#
+# Requirements:
+#   - curl (for downloading nvm and packages)
+#   - bash v4+
+#   - Internet connection
+#   - Z.AI API key (get from: https://z.ai/manage-apikey/apikey-list)
+#
+# Usage:
+#   bash claude_code_zai_env.sh
+#
+# Exit Codes:
+#   0 - Success
+#   1 - Error (installation failed, invalid input, etc.)
+#
+# Author: Auto-generated configuration script
+# ==============================================================================
+
 set -euo pipefail
 
 # ========================

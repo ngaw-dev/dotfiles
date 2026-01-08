@@ -1,7 +1,8 @@
-alias la='eza -lha'
-alias cat='bat'
-alias ls='eza'
-alias lla='eza -lha'
+# Modern replacements for standard Unix commands
+alias la='eza -lha'      # List all files in long form with hidden files
+alias cat='bat'          # Syntax-highlighted cat replacement
+alias ls='eza'           # Modern ls replacement with colors
+alias l='eza -lh'        # List files in long form (no hidden)
 
 # Custom commands
 alias px='pnpm'
