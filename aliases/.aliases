@@ -16,3 +16,5 @@ alias pa-clear='ddev exec php artisan config:clear && ddev exec php artisan rout
 alias supabase-restart="pnpx supabase stop && pnpx supabase start"
 
 alias pint='ddev composer pint'
+
+alias myip='echo "IPv4:" && curl -4 ifconfig.me && echo "" && echo "IPv6:" && curl -6 ifconfig.me && echo ""'
