@@ -6,15 +6,23 @@ alias lla='eza -lha'
 
 # Custom commands
 alias px='pnpm'
+alias ag='antigravity'
 
 ## ddev commands
 alias dexe='ddev exec'
 alias dpu='ddev exec php artisan test --env=testing' 
 alias pa='ddev exec php artisan'
 alias pa-clear='ddev exec php artisan config:clear && ddev exec php artisan route:clear && ddev exec php artisan cache:clear'
+alias dpest="ddev exec ./vendor/bin/pest"
 
 alias supabase-restart="pnpx supabase stop && pnpx supabase start"
 
 alias pint='ddev composer pint'
 
 alias myip='echo "IPv4:" && curl -4 ifconfig.me && echo "" && echo "IPv6:" && curl -6 ifconfig.me && echo ""'
+
+# Server aliases
+alias nz-au-collab="ssh user@104.156.232.185"
+alias wp-server="ssh user@108.61.185.196"
+alias lamp-server="ssh user@108.61.185.77"
+alias hetzner-server="ssh user@65.21.52.133"

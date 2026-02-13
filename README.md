@@ -25,7 +25,7 @@ Before installing, ensure you have the following installed on your machine:
 
 2.  **Core Packages**
     ```bash
-    brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza
+    brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep
     brew install --cask warp
     brew install --cask brave-browser
     brew install --cask 1password
