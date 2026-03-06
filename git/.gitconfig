@@ -1,9 +1,10 @@
 [user]
-    name = NGAW
-    email = ngaw.mobile.dev@gmail.com
+    name = Amol Wankhede
+    email = amolsw.nz@gmail.com
 
 [core]
-    editor = nvim
+    editor = code
+    excludesfile = /Users/amolwankhede/.gitignore
 
 [color]
     ui = auto
