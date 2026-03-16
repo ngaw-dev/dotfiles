@@ -41,3 +41,7 @@ setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 # Aliases
 # ------------------------------------------
 [ -f ~/.aliases ] && source ~/.aliases
+
+# Load nvm
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"

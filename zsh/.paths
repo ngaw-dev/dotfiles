@@ -8,6 +8,9 @@ typeset -U path
 # PNPM
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
 # Prepend paths (Order matters: top is first in PATH)
 path=(
   "/usr/local/opt/php@8.3/sbin"
