@@ -7,6 +7,7 @@ alias lla='eza -lha'
 # Custom commands
 alias px='pnpm'
 alias ag='antigravity'
+alias code='antigravity'
 
 ## ddev commands
 alias dexe='ddev exec'
@@ -22,7 +23,14 @@ alias pint='ddev composer pint'
 alias myip='echo "IPv4:" && curl -4 ifconfig.me && echo "" && echo "IPv6:" && curl -6 ifconfig.me && echo ""'
 
 # Server aliases
-alias nz-au-collab="ssh user@104.156.232.185"
-alias wp-server="ssh user@108.61.185.196"
-alias lamp-server="ssh user@108.61.185.77"
-alias hetzner-server="ssh user@65.21.52.133"
+alias nz-au-collab="ssh amolw@104.156.232.185"
+alias wp-server="ssh amolw@108.61.185.196"
+alias lamp-server="ssh amolw@108.61.185.77"
+alias hetzner-server="ssh amolw@65.21.52.133"
+
+# fzf cd - Interactive directory change
+fcd() {
+  local dir
+  dir=$(fd --type d --hidden --exclude .git | fzf --preview 'eza -lha {}' +m)
+  cd "$dir"
+}
