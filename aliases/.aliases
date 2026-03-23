@@ -24,6 +24,8 @@ alias dtask6='ddev exec vendor/bin/sake tasks'
 
 alias ddjob="ddev exec \"mysql -u root -p'root' -e 'TRUNCATE QueuedJobDescriptor;' db\""
 
+alias dddb="ddev exec \"mysql -u root -p'root' -e 'DROP DATABASE db;' db\""
+
 alias dpu='ddev exec vendor/bin/phpunit'
 
 # SS Search
