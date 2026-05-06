@@ -4,7 +4,7 @@
 
 [core]
     editor = code
-    excludesfile = /Users/amolwankhede/.gitignore
+	excludesFile = ~/.gitignore
 
 [color]
     ui = auto

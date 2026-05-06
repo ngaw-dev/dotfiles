@@ -32,7 +32,7 @@ alias dpu='ddev exec vendor/bin/phpunit'
 alias dconfigure="ddev exec sake dev/tasks/SearchConfigure"
 alias dindex="ddev exec sake dev/tasks/SearchReindex"
 
-alias dsearch="ddelete && dbuild && dconfigure && dindex && dprocess"
+alias dsearch="ddjob && dbuild && dconfigure && dindex && dprocess"
 
 # Applications
 alias brave="open -a 'Brave Browser.app'"
