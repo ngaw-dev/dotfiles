@@ -19,11 +19,13 @@ This repository contains dotfiles and configurations for:
 Before installing, ensure you have the following installed on your machine:
 
 1.  **Homebrew** (Package Manager)
+
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 2.  **Core Packages**
+
     ```bash
     brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep
     brew install --cask warp
@@ -40,6 +42,7 @@ Before installing, ensure you have the following installed on your machine:
     ```
 
 3.  **Oh My Zsh**
+
     ```bash
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
@@ -65,7 +68,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases bash fzf git kitty nvim starship tmux zsh bat
+stow aliases bash fzf git kitty nvim starship tmux zsh bat pnpm
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).
@@ -79,6 +82,7 @@ git restore . # Discard changes if you didn't mean to keep the system version
 ## Post-Installation
 
 1.  **Reload Zsh**
+
     ```bash
     source ~/.zshrc
     ```
@@ -100,6 +104,11 @@ The repository is structured as Stow packages:
 - `git/` -> `~/.gitconfig`
 - `kitty/` -> `~/.config/kitty/`
 - `nvim/` -> `~/.config/nvim/`
+- `pnpm/` -> `~/Library/Preferences/pnpm/rc`
 - `starship/` -> `~/.config/starship.toml`
 - `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
+
+## Getting folders configuration
+
+- Run `pnpm config get globalconfig` to get pnpm config file location if required.
