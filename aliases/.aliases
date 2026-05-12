@@ -4,6 +4,9 @@ alias cat='bat'
 alias ls='eza'
 alias lla='eza -lha'
 
+alias catf='bat $(fzf)'
+alias codef='antigravity $(fzf)'
+
 # Custom commands
 alias px='pnpm'
 alias ag='antigravity'

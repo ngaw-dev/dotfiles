@@ -65,7 +65,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases bash fzf git kitty nvim starship tmux zsh
+stow aliases bash fzf git kitty nvim starship tmux zsh bat
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).
@@ -95,6 +95,7 @@ The repository is structured as Stow packages:
 
 - `aliases/` -> `~/.aliases`
 - `bash/` -> `~/.bashrc`
+- `bat/` -> `~/.config/bat/config`
 - `fzf/` -> `~/.fzf.zsh`
 - `git/` -> `~/.gitconfig`
 - `kitty/` -> `~/.config/kitty/`
