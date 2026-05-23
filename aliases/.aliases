@@ -5,12 +5,10 @@ alias ls='eza'
 alias lla='eza -lha'
 
 alias catf='bat $(fzf)'
-alias codef='antigravity $(fzf)'
+alias codef='code $(fzf)'
 
 # Custom commands
 alias px='pnpm'
-alias ag='antigravity'
-alias code='antigravity'
 
 ## ddev commands
 alias dexe='ddev exec'

@@ -54,3 +54,4 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"

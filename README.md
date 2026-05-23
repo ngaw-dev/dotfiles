@@ -35,7 +35,6 @@ Before installing, ensure you have the following installed on your machine:
     brew install php@8.3 composer caddy node@22 pnpm
     brew install --cask orbstack
     brew install --cask sequel-ace
-    brew install --cask antigravity
     brew install ddev/ddev/ddev
     brew install --cask font-caskaydia-cove-nerd-font
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh

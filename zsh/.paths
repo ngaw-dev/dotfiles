@@ -15,7 +15,6 @@ export NVM_DIR="$HOME/.nvm"
 path=(
   "/usr/local/opt/php@8.3/sbin"
   "/usr/local/opt/php@8.3/bin"
-  "$HOME/.antigravity/antigravity/bin"
   "$HOME/.local/bin"
   "$HOME/bin"
   "$HOME/.cargo/env"
