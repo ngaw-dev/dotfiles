@@ -8,39 +8,39 @@
   // cmux creates this template on launch when ~/.config/cmux/cmux.json is missing.
   // Legacy settings.json files are read only as fallback for keys not present here.
 
-  //   "app" : {
-  //     "preferredEditor" : "",
-  //     "minimalMode" : false,
-  //     "warnBeforeClosingTab" : true,
-  //     "reorderOnNotification" : true,
-  //     "sendAnonymousTelemetry" : true,
-  //     "commandPaletteSearchesAllSurfaces" : false,
-  //     "confirmQuit" : "always",
-  //     "openMarkdownInCmuxViewer" : false,
-  //     "appearance" : "system",
-  //     "warnBeforeClosingTabXButton" : false,
-  //     "workspaceInheritWorkingDirectory" : true,
-  //     "newWorkspacePlacement" : "afterCurrent",
-  //     "menuBarOnly" : false,
-  //     "keepWorkspaceOpenWhenClosingLastSurface" : false,
-  //     "iMessageMode" : false,
-  //     "hideTabCloseButton" : false,
-  //     "openSupportedFilesInCmux" : true,
-  //     "focusPaneOnFirstClick" : false,
-  //     "renameSelectsExistingName" : true,
-  //     "language" : "system",
-  //     "appIcon" : "automatic"
-  //   },
+  "app" : {
+    "preferredEditor" : "",
+    "minimalMode" : false,
+    "warnBeforeClosingTab" : true,
+    "reorderOnNotification" : true,
+    "sendAnonymousTelemetry" : true,
+    "commandPaletteSearchesAllSurfaces" : false,
+    "confirmQuit" : "always",
+    "openMarkdownInCmuxViewer" : false,
+    "appearance" : "dark",
+    "warnBeforeClosingTabXButton" : false,
+    "workspaceInheritWorkingDirectory" : true,
+    "newWorkspacePlacement" : "afterCurrent",
+    "menuBarOnly" : false,
+    "keepWorkspaceOpenWhenClosingLastSurface" : false,
+    "iMessageMode" : false,
+    "hideTabCloseButton" : false,
+    "openSupportedFilesInCmux" : true,
+    "focusPaneOnFirstClick" : false,
+    "renameSelectsExistingName" : true,
+    "language" : "system",
+    "appIcon" : "automatic"
+  },
 
-  //   "terminal" : {
-  //     "textBoxMaxLines" : 10,
-  //     "showScrollBar" : true,
-  //     "resumeCommands" : [
-  // 
-  //     ],
-  //     "copyOnSelect" : false,
-  //     "autoResumeAgentSessions" : true
-  //   },
+  "terminal" : {
+    "textBoxMaxLines" : 10,
+    "showScrollBar" : true,
+    "resumeCommands" : [
+
+    ],
+    "copyOnSelect" : false,
+    "autoResumeAgentSessions" : true
+  },
 
   //   "notifications" : {
   //     "unreadPaneRing" : true,
@@ -98,13 +98,13 @@
   //     "selectionColor" : null
   //   },
 
-  //   "sidebarAppearance" : {
-  //     "lightModeTintColor" : null,
-  //     "tintColor" : "#000000",
-  //     "tintOpacity" : 0.17999999999999999,
-  //     "matchTerminalBackground" : false,
-  //     "darkModeTintColor" : null
-  //   },
+  "sidebarAppearance" : {
+    "lightModeTintColor" : "#EDEDED",
+    "tintColor" : "#1E1E2E",
+    "tintOpacity" : 1.0,
+    "matchTerminalBackground" : true,
+    "darkModeTintColor" : "#1E1E2E"
+  },
 
   //   "automation" : {
   //     "claudeBinaryPath" : "",
