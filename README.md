@@ -9,7 +9,7 @@ This repository contains dotfiles and configurations for:
 - **Shell**: Zsh with Oh My Zsh
 - **Prompt**: Starship
 - **Editor**: Neovim
-- **Terminal**: Kitty
+- **Terminal**: Kitty, Ghostty, Cmux
 - **Multiplexer**: Tmux
 - **Version Control**: Git
 - **Tools**: FZF, Zoxide
@@ -27,7 +27,7 @@ Before installing, ensure you have the following installed on your machine:
 2.  **Core Packages**
 
     ```bash
-    brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep
+    brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep ghostty
     brew install --cask warp
     brew install --cask brave-browser
     brew install --cask 1password
@@ -67,7 +67,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases bash fzf git kitty nvim starship tmux zsh bat pnpm
+stow aliases bash fzf git kitty ghostty nvim starship tmux zsh bat pnpm cmux
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).
@@ -101,7 +101,9 @@ The repository is structured as Stow packages:
 - `bat/` -> `~/.config/bat/config`
 - `fzf/` -> `~/.fzf.zsh`
 - `git/` -> `~/.gitconfig`
+- `ghostty/` -> `~/.config/ghostty/`
 - `kitty/` -> `~/.config/kitty/`
+- `cmux/` -> `~/.config/cmux/`
 - `nvim/` -> `~/.config/nvim/`
 - `pnpm/` -> `~/Library/Preferences/pnpm/rc`
 - `starship/` -> `~/.config/starship.toml`
