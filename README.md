@@ -39,6 +39,7 @@ Before installing, ensure you have the following installed on your machine:
     brew install --cask font-caskaydia-cove-nerd-font
     brew install markdownlint-cli pv
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
+    curl -fsSL https://opencode.ai/install | bash
     ```
 
 3.  **Oh My Zsh**
