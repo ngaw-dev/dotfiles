@@ -1,5 +1,5 @@
 ---
-name: cmux
+name: ngaw-cmux
 description: >
   Master control of the cmux terminal multiplexer — workspace/layout management,
   browser automation, terminal interaction, sidebar/notifications, SSH sessions,
