@@ -37,6 +37,7 @@ Before installing, ensure you have the following installed on your machine:
     brew install --cask sequel-ace
     brew install ddev/ddev/ddev
     brew install --cask font-caskaydia-cove-nerd-font
+    brew install markdownlint-cli pv
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
     ```
 
@@ -67,7 +68,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases bash fzf git kitty ghostty nvim starship tmux zsh bat pnpm cmux
+stow aliases bash fzf git kitty ghostty nvim starship tmux zsh bat pnpm cmux opencode
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).

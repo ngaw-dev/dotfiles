@@ -1,0 +1,26 @@
+# ========== FONT ==========
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 14
+line-height = 1.2
+adjust-cell-height = 20%
+
+# ========== COLORS ==========
+theme = Catppuccin Macchiato
+
+# ========== WINDOW ==========
+background-opacity = 1
+window-padding-x = 6
+window-padding-y = 6
+
+# ========== MOUSE ==========
+mouse-hide-while-typing = true
+
+# ========== KEYBINDINGS ==========
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+# ========== TERMINAL ==========
+confirm-close-surface = true
+
+# ========== MISC ==========
+term = xterm-256color
