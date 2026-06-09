@@ -40,6 +40,7 @@ Before installing, ensure you have the following installed on your machine:
     brew install markdownlint-cli pv
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
     curl -fsSL https://opencode.ai/install | bash
+    brew install 1password-cli
     ```
 
 3.  **Oh My Zsh**
@@ -115,3 +116,8 @@ The repository is structured as Stow packages:
 ## Getting folders configuration
 
 - Run `pnpm config get globalconfig` to get pnpm config file location if required.
+
+## 1Password
+
+- Create api credentials using `./scripts/op-create.sh`
+- Reveal secret using `op item get "gh-token" --field credential --reveal`

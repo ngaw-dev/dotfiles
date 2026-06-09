@@ -17,6 +17,7 @@ path=(
   "/usr/local/opt/php@8.3/bin"
   "$HOME/.local/bin"
   "$HOME/bin"
+  "$HOME/dotfiles/scripts"
   "$HOME/.cargo/env"
   "$HOME/.bun"
   "/usr/local/opt/node@22/bin"

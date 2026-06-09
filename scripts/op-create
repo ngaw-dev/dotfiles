@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+echo "🔐 1Password API Credential Creator"
+echo "Press [ENTER] to accept the default values in brackets."
+echo "----------------------------------------"
+
+# 1. Gather Interactive Input
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -f "$SCRIPT_DIR/.env" ]]; then
+    set -a; source "$SCRIPT_DIR/.env"; set +a
+fi
+
+VAULT="${OP_VAULT_ID:-}"
+if [[ -z "$VAULT" ]]; then
+    read -rp "🏦 Enter Vault ID: " VAULT
+    if [[ -z "$VAULT" ]]; then
+        echo "❌ Error: Vault ID cannot be empty." >&2
+        exit 1
+    fi
+fi
+
+read -rp "📝 Enter Title/Name for this key: " TITLE
+if [[ -z "$TITLE" ]]; then
+    echo "❌ Error: Title cannot be empty." >&2
+    exit 1
+fi
+
+# Use read -s to prevent the sensitive API key from echoing to the terminal screen
+read -rsp "🔑 Enter the actual API Key/Token: " CREDENTIAL
+echo "" # Print a newline after hidden input
+
+if [[ -z "$CREDENTIAL" ]]; then
+    echo "❌ Error: API Key cannot be empty." >&2
+    exit 1
+fi
+
+read -rp "🔗 Enter URL/Endpoint (e.g., https://api.github.com): " URL
+read -rp "👤 Enter Username or App ID (optional): " USERNAME
+read -rp "🌐 Enter Hostname (e.g., api.github.com, optional): " HOSTNAME
+
+read -rp "🏷️ Enter Category [API Credential]: " CATEGORY
+CATEGORY=${CATEGORY:-"API Credential"}
+
+echo "----------------------------------------"
+echo "⏳ Creating item '$TITLE'..."
+
+# 2. Build and execute the 1Password CLI command securely using an array
+# This avoids shell splitting issues if titles or names have spaces
+CMD=(
+  op item create
+  --category "$CATEGORY"
+  --vault "$VAULT"
+  --title "$TITLE"
+)
+
+# Only append optional flags/fields if they were provided
+[[ -n "$URL" ]] && CMD+=(--url "$URL")
+[[ -n "$USERNAME" ]] && CMD+=("username=$USERNAME")
+[[ -n "$CREDENTIAL" ]] && CMD+=("credential=$CREDENTIAL")
+[[ -n "$HOSTNAME" ]] && CMD+=("hostname=$HOSTNAME")
+
+# Execute the 1Password command
+"${CMD[@]}"
+
+echo "✅ Success! Item created safely inside 1Password."
