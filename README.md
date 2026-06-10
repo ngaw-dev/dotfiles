@@ -117,7 +117,28 @@ The repository is structured as Stow packages:
 
 - Run `pnpm config get globalconfig` to get pnpm config file location if required.
 
+## Environment Variables
+
+Secrets are stored in a root `.env` file (not tracked by git). Copy the example and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description |
+|----------|-------------|
+| `OP_VAULT_ID` | 1Password vault ID for API credential storage |
+| `GH_TOKEN` | GitHub personal access token |
+
+The `.env` file is automatically sourced by `.zshrc` on shell startup.
+
 ## 1Password
 
-- Create api credentials using `./scripts/op-create.sh`
-- Reveal secret using `op item get "gh-token" --field credential --reveal`
+- Create API credentials using `./scripts/op-create`
+- Reveal a secret: `op item get "gh-token" --field credential --reveal`
+
+# CMUX
+
+- https://github.com/ng-aw/ngaw-cmux copy of the script files (v0.2.0)
+- `cmux-base [workspace-name]` Creates two tab layout one with AI and Workspace folder
+- `cmux-workspace-layout [workspace-name]`Creates split layout with pnpm dev pnpm storybook and Workspace folder

@@ -1,0 +1,117 @@
+#!/bin/bash
+# cmux-workspace-layout.sh
+
+set -euo pipefail
+
+SCRIPT_NAME=$(basename "$0")
+DOCS_URL="https://cmux.com/docs/api"
+
+usage() {
+    cat <<EOF
+📋 Usage: $SCRIPT_NAME [options] [name]
+
+Create a cmux workspace with a 3-pane layout:
+
+  ┌─────────┬─────────┐
+  │ Pane 1  │ Pane 2  │
+  ├─────────┤         │
+  │ Pane 3  │         │
+  └─────────┴─────────┘
+
+Uses cmux CLI via Unix socket. See $DOCS_URL for API reference.
+
+Arguments:
+  name          Workspace name (default: "dev")
+
+Options:
+  --cwd DIR     Working directory (default: \$PWD)
+  --help        Show this help and exit
+EOF
+    exit 0
+}
+
+NAME="dev"
+CWD="$PWD"
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --cwd) CWD="$2"; shift 2 ;;
+        --help) usage ;;
+        --*) echo "Unknown option: $1"; usage ;;
+        *) NAME="$1"; shift ;;
+    esac
+done
+
+# --- Prerequisites ---
+
+if ! command -v cmux &>/dev/null; then
+    echo "❌ Error: cmux not found. Install from $DOCS_URL" >&2
+    exit 1
+fi
+
+if ! cmux ping &>/dev/null; then
+    echo "❌ Error: cmux socket unreachable. Is cmux running?" >&2
+    exit 1
+fi
+
+# --- Define layout ---
+
+LAYOUT='{"direction":"horizontal","split":0.5,"children":[{"direction":"vertical","split":0.5,"children":[{"pane":{"surfaces":[{"type":"terminal","command":"pnpm dev"}]}},{"pane":{"surfaces":[{"type":"terminal","command":"pnpm storybook"}]}}]},{"pane":{"surfaces":[{"type":"terminal"}]}}]}'
+
+# --- Create workspace with layout ---
+
+echo "🚀 Creating workspace \"$NAME\"..."
+WS_OUTPUT=$(cmux workspace create --name "🧭 $NAME" --cwd "$CWD" --layout "$LAYOUT" 2>/dev/null)
+WS_REF=$(echo "$WS_OUTPUT" | grep -o 'workspace:[0-9]\+')
+
+if [[ -z "$WS_REF" ]]; then
+    echo "❌ Error: failed to determine workspace ID" >&2
+    exit 1
+fi
+echo "  🏁 Workspace: $WS_REF"
+
+# Poll tree until layout is fully applied (race condition guard).
+TREE_JSON=""
+PANE_COUNT=0
+for i in {1..20}; do
+    TREE_JSON=$(cmux tree --workspace "$WS_REF" --json --id-format refs 2>/dev/null)
+    PANE_COUNT=$(echo "$TREE_JSON" | jq '.windows[0].workspaces[0].panes | length')
+    if [[ "$PANE_COUNT" -eq 3 ]]; then
+        break
+    fi
+    sleep 0.25
+done
+
+if [[ "$PANE_COUNT" -ne 3 ]]; then
+    echo "❌ Error: expected 3 panes, found $PANE_COUNT" >&2
+    exit 1
+fi
+
+# Map surfaces by pane index (DFS order: 0=left-top, 1=left-bottom, 2=right).
+S1_REF=$(echo "$TREE_JSON" | jq -r '.windows[0].workspaces[0].panes[] | select(.index == 0) | .surfaces[0].ref')
+S2_REF=$(echo "$TREE_JSON" | jq -r '.windows[0].workspaces[0].panes[] | select(.index == 2) | .surfaces[0].ref')
+S3_REF=$(echo "$TREE_JSON" | jq -r '.windows[0].workspaces[0].panes[] | select(.index == 1) | .surfaces[0].ref')
+
+echo "  ♻️ Tab 1 (left-top):     $S1_REF"
+echo "  🚀 Tab 2 (right):        $S2_REF"
+echo "  🎨 Tab 3 (left-bottom):  $S3_REF"
+
+# --- Rename tabs ---
+
+cmux select-workspace --workspace "$WS_REF" >/dev/null 2>&1
+
+cmux tab-action --action rename --workspace "$WS_REF" --surface "$S1_REF" --title "♻️ px dev" 2>/dev/null
+echo "  ♻️ Tab 1 → px dev (running pnpm dev)"
+
+cmux tab-action --action rename --workspace "$WS_REF" --surface "$S2_REF" --title "💻 Workspace - $NAME" 2>/dev/null
+echo "  🚀 Tab 2 → 💻 Workspace - $NAME"
+
+cmux tab-action --action rename --workspace "$WS_REF" --surface "$S3_REF" --title "🎨 px storybook" 2>/dev/null
+echo "  🎨 Tab 3 → px storybook (running pnpm storybook)"
+
+# --- Report ---
+
+echo ""
+echo "✅ Done. Workspace layout:"
+echo ""
+cmux tree --workspace "$WS_REF"

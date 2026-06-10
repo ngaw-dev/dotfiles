@@ -1,0 +1,23 @@
+#!/bin/bash
+set -euo pipefail
+
+# /Users/amolw/personal/workspace/cmux-base.sh
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <workspace-name>"
+    exit 1
+fi
+
+NAME="🚀 $1"
+
+WS_OUTPUT=$(cmux workspace create --name "$NAME" --command "opencode" 2>/dev/null)
+WS_REF=$(echo "$WS_OUTPUT" | grep -o 'workspace:[0-9]\+')
+
+S1_REF=$(cmux list-pane-surfaces --workspace "$WS_REF" --json 2>/dev/null \
+    | grep -o '"ref" : "[^"]*"' | head -1 | cut -d'"' -f4)
+
+S2_OUTPUT=$(cmux new-surface --workspace "$WS_REF" --type terminal 2>/dev/null)
+S2_REF=$(echo "$S2_OUTPUT" | grep -o 'surface:[0-9]\+')
+
+cmux tab-action --action rename --workspace "$WS_REF" --surface "$S1_REF" --title "🤖 AI - $NAME" 2>/dev/null
+cmux tab-action --action rename --workspace "$WS_REF" --surface "$S2_REF" --title "💻 Workspace - $NAME" 2>/dev/null
