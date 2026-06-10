@@ -3,14 +3,33 @@ set -euo pipefail
 
 # /Users/amolw/personal/workspace/cmux-base.sh
 
-if [ $# -lt 1 ]; then
-    echo "Usage: $0 <workspace-name>"
+CWD="$PWD"
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --cwd) CWD="$2"; shift 2 ;;
+        --help)
+            echo "Usage: $0 [--cwd DIR] <workspace-name>"
+            exit 0
+            ;;
+        *)
+            if [ -z "${NAME:-}" ]; then
+                NAME="🚀 $1"
+                shift
+            else
+                echo "Usage: $0 [--cwd DIR] <workspace-name>"
+                exit 1
+            fi
+            ;;
+    esac
+done
+
+if [ -z "${NAME:-}" ]; then
+    echo "Usage: $0 [--cwd DIR] <workspace-name>"
     exit 1
 fi
 
-NAME="🚀 $1"
-
-WS_OUTPUT=$(cmux workspace create --name "$NAME" --command "opencode" 2>/dev/null)
+WS_OUTPUT=$(cmux workspace create --name "$NAME" --cwd "$CWD" --command "opencode" 2>/dev/null)
 WS_REF=$(echo "$WS_OUTPUT" | grep -o 'workspace:[0-9]\+')
 
 S1_REF=$(cmux list-pane-surfaces --workspace "$WS_REF" --json 2>/dev/null \
