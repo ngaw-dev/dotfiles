@@ -55,8 +55,53 @@ if ! cmux ping &>/dev/null; then
 fi
 
 # --- Define layout ---
+# Build layout JSON with explicit cwd per surface so terminals start in the
+# correct directory even if --cwd doesn't propagate from workspace to surfaces.
 
-LAYOUT='{"direction":"horizontal","split":0.5,"children":[{"direction":"vertical","split":0.5,"children":[{"pane":{"surfaces":[{"type":"terminal","command":"pnpm dev"}]}},{"pane":{"surfaces":[{"type":"terminal","command":"pnpm storybook"}]}}]},{"pane":{"surfaces":[{"type":"terminal"}]}}]}'
+LAYOUT=$(jq -n --arg cwd "$CWD" '{
+  "direction": "horizontal",
+  "split": 0.5,
+  "children": [
+    {
+      "direction": "vertical",
+      "split": 0.5,
+      "children": [
+        {
+          "pane": {
+            "surfaces": [
+              {
+                "type": "terminal",
+                "cwd": $cwd,
+                "command": "pnpm dev"
+              }
+            ]
+          }
+        },
+        {
+          "pane": {
+            "surfaces": [
+              {
+                "type": "terminal",
+                "cwd": $cwd,
+                "command": "pnpm storybook"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "pane": {
+        "surfaces": [
+          {
+            "type": "terminal",
+            "cwd": $cwd
+          }
+        ]
+      }
+    }
+  ]
+}')
 
 # --- Create workspace with layout ---
 
