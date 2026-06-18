@@ -37,7 +37,7 @@ Use `git gtr` commands (run from the main repo at `/Users/amolw/clients/tour-pla
 | **Open in editor** (Cursor/VS Code) | `git gtr editor <branch>` |
 | **Open in AI tool** (opencode) | `git gtr ai <branch>` |
 | **Run command in worktree** | `git gtr run <branch> <command>` |
-| **Run tests in worktree** | `git gtr run <branch> ddev exec php artisan test --env=testing` |
+| **Run tests in worktree** | `git gtr run <branch> ddev exec php artisan test` |
 | **Remove a worktree** | `git gtr rm <branch>` |
 | **Remove and delete branch** | `git gtr rm <branch> --delete-branch` |
 | **Copy files to worktree** | `git gtr copy <branch>` |
@@ -73,7 +73,7 @@ git gtr new variant-1 --from-current
 
 **Running tests in a specific worktree:**
 ```bash
-git gtr run my-feature ddev exec php artisan test --env=testing
+git gtr run my-feature ddev exec php artisan test
 ```
 
 **Cleaning up stale worktrees:**

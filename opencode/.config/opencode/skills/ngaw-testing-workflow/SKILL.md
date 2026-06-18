@@ -67,16 +67,16 @@ seconds rather than waiting for the full suite.
 
 ```bash
 # Run a single test class/file
-ddev exec php artisan test --env=testing tests/Feature/HotelTest.php
+ddev exec php artisan test tests/Feature/HotelTest.php
 
 # Run a specific test method by name
-ddev exec php artisan test --env=testing --filter test_hotel_create
+ddev exec php artisan test --filter test_hotel_create
 
 # Run tests for a service or module
-ddev exec php artisan test --env=testing tests/Unit/Services/HotelServiceTest.php
+ddev exec php artisan test tests/Unit/Services/HotelServiceTest.php
 
 # Run the full suite (only after confirmation)
-ddev exec php artisan test --env=testing
+ddev exec php artisan test
 ```
 
 ### 2.2 Validate New Tests Pass
@@ -99,7 +99,7 @@ Once filtered tests pass, **ask the user**:
 
 > "Should I run the full test suite to ensure no regressions?"
 
-Only run the full suite (`ddev exec php artisan test --env=testing`) upon explicit confirmation.
+Only run the full suite (`ddev exec php artisan test`) upon explicit confirmation.
 This respects the user's time — the full suite may take minutes.
 
 ---
@@ -165,9 +165,9 @@ Before marking work as complete, verify each item:
 
 ```bash
 # PHP / Pest tests (primary)
-ddev exec php artisan test --env=testing                          # Full suite
-ddev exec php artisan test --env=testing --filter=HotelTest       # Single filter
-ddev exec php artisan test --env=testing tests/Feature/HotelTest.php  # By file
+ddev exec php artisan test                          # Full suite
+ddev exec php artisan test --filter=HotelTest       # Single filter
+ddev exec php artisan test tests/Feature/HotelTest.php  # By file
 
 # Frontend tests (if available)
 pnpm test                     # Vitest unit tests
