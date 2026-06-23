@@ -17,7 +17,9 @@ alias dbuild6='ddev exec vendor/bin/sake db:build --flush'
 alias dprocess6='ddev exec vendor/bin/sake tasks:ProcessJobQueueTask'
 
 alias dexec='ddev exec'
+
 alias dpopulate='ddev exec vendor/bin/sake dev/tasks/PopulateTask'
+alias dpopulate6='ddev exec vendor/bin/sake tasks:PopulateTask'
 
 alias dtask='ddev exec vendor/bin/sake dev/tasks'
 alias dtask6='ddev exec vendor/bin/sake tasks'
@@ -30,9 +32,13 @@ alias dpu='ddev exec vendor/bin/phpunit'
 
 # SS Search
 alias dconfigure="ddev exec sake dev/tasks/SearchConfigure"
+alias dconfigure6="ddev exec sake tasks:SearchConfigure"
+
 alias dindex="ddev exec sake dev/tasks/SearchReindex"
+alias dindex6="ddev exec sake tasks:SearchReindex"
 
 alias dsearch="ddjob && dbuild && dconfigure && dindex && dprocess"
+alias dsearch6="ddjob && dbuild6 && dconfigure6 && dindex6 && dprocess6"
 
 # Applications
 alias brave="open -a 'Brave Browser.app'"
