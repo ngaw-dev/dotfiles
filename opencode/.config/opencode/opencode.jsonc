@@ -1,3 +1,23 @@
 {
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "skills": {
+    "paths": ["/Users/amolw/personal/mimir-wisdom"]
+  },
+  "provider": {
+    "zai-coding-plan": {
+      "models": {
+        "glm-4.7": {}
+      }
+    }
+  },
+  // oxlint is configured explicitly (instead of relying on the built-in's
+  // "oxlint dependency in project" trigger) so it runs in every JS/TS-family
+  // file regardless of the project's package.json.
+  "lsp": {
+    "oxlint": {
+      "command": ["oxlint", "--lsp"],
+      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts", ".vue", ".astro", ".svelte"]
+    }
+  }
 }
