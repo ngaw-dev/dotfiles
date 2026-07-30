@@ -4,5 +4,5 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # fzf + ripgrep live search
 fif() {
-  rg --files | fzf --preview 'batcat --color=always --style=numbers --line-range=:500 {}'
+  rg --files | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 }

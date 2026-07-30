@@ -60,7 +60,7 @@ Before installing, ensure you have the following installed on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+git clone https://github.com/ngaw-dev/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
@@ -112,10 +112,6 @@ The repository is structured as Stow packages:
 - `starship/` -> `~/.config/starship.toml`
 - `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
-
-## Getting folders configuration
-
-- Run `pnpm config get globalconfig` to get pnpm config file location if required.
 
 ## Environment Variables
 

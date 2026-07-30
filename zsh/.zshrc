@@ -55,7 +55,6 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export EDITOR="code --wait"
 
 export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
 
@@ -71,4 +70,4 @@ PERSONAL_ENV="$HOME/personal/.env"
 [[ -f "$PERSONAL_ENV" ]] && set -a && source "$PERSONAL_ENV" && set +a
 
 # kimi-code
-export PATH="/Users/amolw/.kimi-code/bin:$PATH"
+export PATH="$HOME/.kimi-code/bin:$PATH"
