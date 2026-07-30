@@ -28,6 +28,7 @@ path=(
   "/opt/homebrew/sbin"
   "/opt/homebrew/bin"
   "/usr/local/opt/node@22/bin"
+  "/usr/local/sbin"
   $path
 )
 

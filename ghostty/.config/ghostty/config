@@ -21,6 +21,7 @@ keybind = ctrl+shift+v=paste_from_clipboard
 
 # ========== TERMINAL ==========
 confirm-close-surface = true
+scrollback-limit = 100000
 
 # ========== MISC ==========
 term = xterm-256color

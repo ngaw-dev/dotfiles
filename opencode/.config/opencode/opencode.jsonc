@@ -1,23 +1,80 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "skills": {
-    "paths": ["/Users/amolw/personal/mimir-wisdom"]
+    "paths": [
+      "{env:PERSONAL_FOLDER}/mimir-wisdom"
+    ]
   },
   "provider": {
     "zai-coding-plan": {
       "models": {
         "glm-4.7": {}
       }
+    },
+    "omni-route": {
+        "options": {
+            "baseURL": "http://localhost:20128/v1",
+            "apiKey": "{env:OMNI_ROUTE_API_KEY}"
+        },
+        "models": {
+            "auto/best-free": {
+              "name": "OmniRoute Auto (Best Free)"
+            },
+            "zai/glm-5-turbo": {
+              "name": "OmniRoute ZAI GLM-5 Turbo"
+            },
+            "zai/glm-5.2": {
+              "name": "OmniRoute ZAI GLM-5.2"
+            },
+            "zai/glm-5.1": {
+              "name": "OmniRoute ZAI GLM-5.1"
+            },
+            "oc/deepseek-v4-flash-free": {
+              "name": "OmniRoute DeepSeek V4 Flash Free"
+            },
+            "oc/big-pickle": {
+              "name": "OmniRoute Big Pickle"
+            }
+        }
     }
   },
-  // oxlint is configured explicitly (instead of relying on the built-in's
-  // "oxlint dependency in project" trigger) so it runs in every JS/TS-family
-  // file regardless of the project's package.json.
   "lsp": {
     "oxlint": {
-      "command": ["oxlint", "--lsp"],
-      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts", ".vue", ".astro", ".svelte"]
+      "command": [
+        "oxlint",
+        "--lsp"
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx",
+        ".mjs",
+        ".cjs",
+        ".mts",
+        ".cts",
+        ".vue",
+        ".astro",
+        ".svelte"
+      ]
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": true
     }
   }
 }

@@ -64,6 +64,11 @@ _gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
 [[ -f "$_gtr_init" ]] || eval "$(git gtr init zsh)" || true
 source "$_gtr_init" 2>/dev/null || true; unset _gtr_init
 
-# Load root .env and export variables
+# Load env files and export variables
 ENV_FILE="$HOME/dotfiles/.env"
 [[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+PERSONAL_ENV="$HOME/personal/.env"
+[[ -f "$PERSONAL_ENV" ]] && set -a && source "$PERSONAL_ENV" && set +a
+
+# kimi-code
+export PATH="/Users/amolw/.kimi-code/bin:$PATH"

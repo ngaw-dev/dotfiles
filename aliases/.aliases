@@ -35,3 +35,10 @@ fcd() {
   dir=$(fd --type d --hidden --exclude .git | fzf --preview 'eza -lha {}' +m)
   cd "$dir"
 }
+
+# Opencode
+alias oc-config='code ~/.local/share/opencode/auth.json'
+
+# Cargo
+alias cfmt='cargo fmt'
+alias crun='cargo run'
