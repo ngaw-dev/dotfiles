@@ -34,6 +34,30 @@
             },
             "oc/big-pickle": {
               "name": "OmniRoute Big Pickle"
+            },
+            "kr/claude-haiku-4.5": {
+              "name": "OmniRoute Claude Haiku 4.5"
+            },
+            "kr/claude-sonnet-4.5": {
+              "name": "OmniRoute Claude Sonnet 4.5"
+            },
+            "kr/deepseek-3.2": {
+              "name": "OmniRoute DeepSeek 3.2"
+            },
+            "kr/minimax-m2.5": {
+              "name": "OmniRoute MiniMax M2.5"
+            },
+            "kr/glm-5": {
+              "name": "OmniRoute GLM-5"
+            },
+            "antigravity/gemini-3.6-flash-high": {
+              "name": "OmniRoute Gemini 3.6 Flash High"
+            },
+            "antigravity/gemini-3.6-flash-medium": {
+              "name": "OmniRoute Gemini 3.6 Flash Medium"
+            },
+            "antigravity/claude-sonnet-4-6": {
+              "name": "OmniRoute Claude Sonnet 4.6"
             }
         }
     }
