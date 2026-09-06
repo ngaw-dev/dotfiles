@@ -1,5 +1,5 @@
 # ==========================================
-#   ZSH — Warp Optimized Configuration
+#   ZSH Configuration
 # ==========================================
 export PLATFORM="mac"
 export EDITOR="nvim"
@@ -10,17 +10,16 @@ export EDITOR="nvim"
 [ -f ~/.paths ] && source ~/.paths
 
 # ------------------------------------------
-# Oh-My-Zsh (Plugins only, Warp handles UI)
+# Zinit (plugin manager)
 # ------------------------------------------
-export ZSH="$HOME/.oh-my-zsh"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname "$ZINIT_HOME")"
+[ ! -d "$ZINIT_HOME/.git" ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
+zinit snippet OMZP::git
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
 
 # ------------------------------------------
 # Tools
@@ -28,6 +27,10 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # ------------------------------------------
 # History
@@ -41,7 +44,3 @@ setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 # Aliases
 # ------------------------------------------
 [ -f ~/.aliases ] && source ~/.aliases
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

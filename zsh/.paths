@@ -19,6 +19,7 @@ path=(
   "/opt/homebrew/sbin"
   "/opt/homebrew/bin"
   "/usr/local/opt/node@22/bin"
+  "$HOME/.cargo/bin"
   $path
 )
 

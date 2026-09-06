@@ -6,7 +6,7 @@ Configuration files for my macOS development environment.
 
 This repository contains dotfiles and configurations for:
 
-- **Shell**: Zsh with Oh My Zsh
+- **Shell**: Zsh with Zinit
 - **Prompt**: Starship
 - **Editor**: Neovim
 - **Terminal**: Kitty
@@ -39,16 +39,9 @@ Before installing, ensure you have the following installed on your machine:
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
     ```
 
-3.  **Oh My Zsh**
-    ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
+3.  **Zinit**
 
-4.  **Zsh Plugins**
-    ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    ```
+    Zinit is bootstrapped automatically the first time you source `~/.zshrc` (it self-clones to `~/.local/share/zinit/zinit.git` if missing). No manual install step needed — plugins (`zsh-autosuggestions`, `zsh-syntax-highlighting`, and the Oh My Zsh `git` plugin snippet) are declared in `zsh/.zshrc` and installed on first run.
 
 ## Installation
 
