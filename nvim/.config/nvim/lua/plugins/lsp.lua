@@ -1,37 +1,32 @@
 return {
-  -- lspconfig
+  -- mason (must be loaded before mason-lspconfig)
   {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      { "williamboman/mason.nvim", config = true },
-      "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = { "lua_ls" },
     },
-    config = function()
-      -- setup mason-lspconfig
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
-        automatic_installation = true,
-      })
+  },
 
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      -- setup handlers for mason-lspconfig
-      require("mason-lspconfig").setup_handlers({
+  -- mason-lspconfig
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      automatic_installation = true,
+      handlers = {
         function(server_name)
-          lspconfig[server_name].setup({
-            capabilities = capabilities,
-          })
+          local lspconfig = require("lspconfig")
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
+          lspconfig[server_name].setup({ capabilities = capabilities })
         end,
         ["lua_ls"] = function()
+          local lspconfig = require("lspconfig")
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
           lspconfig.lua_ls.setup({
             capabilities = capabilities,
             settings = {
               Lua = {
-                diagnostics = {
-                  globals = { "vim" },
-                },
+                diagnostics = { globals = { "vim" } },
                 workspace = {
                   library = {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -42,8 +37,19 @@ return {
             },
           })
         end,
-      })
-    end,
+      },
+    },
+  },
+
+  -- lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+    },
   },
 
   -- cmp

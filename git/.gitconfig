@@ -1,0 +1,22 @@
+[user]
+    name = Amol Wankhede
+    email = amolsw.nz@gmail.com
+
+[core]
+    editor = nvim
+	excludesfile = ~/.gitignore_global
+	pager = 
+
+[color]
+	ui = false
+[init]
+    defaultBranch = main
+
+[alias]
+    pushf  = push
+    pusht  = !git push && git push --tags
+	merge-to = "!f() { current_branch=$(git symbolic-ref --short HEAD); git checkout \"$1\" && git merge \"$current_branch\" && git checkout \"$current_branch\"; }; f"
+[gtr "editor"]
+	default = code
+[gtr "ai"]
+	default = opencode

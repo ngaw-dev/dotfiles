@@ -1,14 +1,53 @@
-# Modern replacements for standard Unix commands
-alias la='eza -lha'      # List all files in long form with hidden files
-alias cat='bat'          # Syntax-highlighted cat replacement
-alias ls='eza'           # Modern ls replacement with colors
-alias l='eza -lh'        # List files in long form (no hidden)
+alias ll='eza -lh'
+alias la='eza -lha'
+alias cat='bat'
+alias ls='eza'
+alias lla='eza -lha'
+
+alias catf='bat $(fzf)'
+alias codef='code $(fzf)'
 
 # Custom commands
 alias px='pnpm'
 
 ## ddev commands
-alias pa='php artisan'
-alias pa-clear='php artisan config:clear && php artisan route:clear && php artisan cache:clear'
+alias dexe='ddev exec'
+alias dpu='ddev exec php artisan test' 
+alias pa='ddev exec php artisan'
+alias pa-clear='ddev exec php artisan config:clear && ddev exec php artisan route:clear && ddev exec php artisan cache:clear'
+alias dpest="ddev exec ./vendor/bin/pest"
 
-alias www="cd /var/www"
+alias supabase-restart="pnpx supabase stop && pnpx supabase start"
+
+alias pint='ddev composer pint'
+
+alias myip='echo "IPv4:" && curl -4 ifconfig.me && echo "" && echo "IPv6:" && curl -6 ifconfig.me && echo ""'
+
+# Server aliases
+alias nz-au-collab="ssh amolw@104.156.232.185"
+alias wp-server="ssh amolw@108.61.185.196"
+alias lamp-server="ssh amolw@108.61.185.77"
+alias hetzner-server="ssh amolw@65.21.52.133"
+
+# fzf cd - Interactive directory change
+fcd() {
+  local dir
+  dir=$(fd --type d --hidden --exclude .git | fzf --preview 'eza -lha {}' +m)
+  cd "$dir"
+}
+
+# Opencode
+alias oc-config='code ~/.local/share/opencode/auth.json'
+
+# Cargo
+alias cfmt='cargo fmt'
+alias crun='cargo run'
+
+# Silverstripe
+alias dbuild6='ddev exec vendor/bin/sake db:build --flush'
+alias dprocess6='ddev exec vendor/bin/sake tasks:ProcessJobQueueTask'
+alias dtask6='ddev exec vendor/bin/sake tasks'
+alias ddjob="ddev exec \"mysql -u root -p'root' -e 'TRUNCATE QueuedJobDescriptor;' db\""
+alias dpu='ddev exec vendor/bin/phpunit'
+
+alias dc="docker compose"

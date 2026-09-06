@@ -1,5 +1,5 @@
 # ------------------------------------------
-# Paths
+# Paths — just add one path per line below
 # ------------------------------------------
 
 # Ensure unique paths
@@ -8,13 +8,27 @@ typeset -U path
 # PNPM
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
+# MY_BRAIN_PATH for mimir-wisdom-skill
+export MY_BRAIN_PATH="$HOME/personal/my-brain"
+
 # Prepend paths (Order matters: top is first in PATH)
 path=(
-  "/usr/local/opt/php@8.3/sbin"
-  "/usr/local/opt/php@8.3/bin"
-  "/opt/homebrew/sbin"
-  "/opt/homebrew/bin"
-  "/usr/local/opt/node@22/bin"
+  /usr/local/opt/php@8.3/sbin
+  /usr/local/opt/php@8.3/bin
+  $HOME/.local/bin
+  $HOME/bin
+  $HOME/dotfiles/scripts
+  $HOME/.cargo/bin
+  $HOME/.cargo/env
+  $HOME/.bun
+  /usr/local/opt/node@22/bin
+  $PNPM_HOME
+  /opt/homebrew/sbin
+  /opt/homebrew/bin
+  /usr/local/sbin
   $path
 )
 

@@ -66,7 +66,7 @@ cd ~/dotfiles
 git checkout server
 
 # Use stow to symlink configs
-stow aliases bash fzf git nvim starship tmux zsh
+stow aliases atuin bat fzf git nvim zsh
 
 # If you need to adopt existing configs
 stow --adopt zsh
