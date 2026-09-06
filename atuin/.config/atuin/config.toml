@@ -1,0 +1,50 @@
+## Atuin Configuration
+
+# Search & Behavior
+search_mode = "daemon-fuzzy"
+search_mode_shell_up_key_binding = "daemon-fuzzy"
+filter_mode = "global"
+filter_mode_shell_up_key_binding = "directory"
+workspaces = true
+enter_accept = true
+exit_mode = "return-original"
+strip_trailing_whitespace = true
+
+# UI & Display
+style = "compact"
+inline_height = 20
+show_preview = true
+max_preview_height = 4
+show_help = true
+show_tabs = true
+show_numeric_shortcuts = true
+
+# Security & Filtering
+secrets_filter = true
+store_failed = true
+history_filter = [
+  "^clear$",
+  "^exit$",
+  "^pwd$",
+  "^ls$",
+]
+
+# Background Daemon
+[daemon]
+enabled = true
+autostart = true
+
+# Tmux Integration
+[tmux]
+enabled = true
+width = "80%"
+height = "60%"
+
+# Interface Columns & Syntax Highlighting
+[ui]
+syntax_highlight = true
+columns = ["exit", "duration", "time", "command"]
+
+[stats]
+common_prefix = ["sudo"]
+ignored_commands = ["cd", "ls", "pwd", "exit", "clear"]

@@ -16,6 +16,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname "$ZINIT_HOME")"
 [ ! -d "$ZINIT_HOME/.git" ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
+unalias zi 2>/dev/null # avoid clobbering zoxide's `zi` (interactive cd)
 
 zinit snippet OMZP::git
 zinit light zsh-users/zsh-autosuggestions
@@ -27,6 +28,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"

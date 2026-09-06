@@ -43,6 +43,11 @@ Before installing, ensure you have the following installed on your machine:
 
     Zinit is bootstrapped automatically the first time you source `~/.zshrc` (it self-clones to `~/.local/share/zinit/zinit.git` if missing). No manual install step needed — plugins (`zsh-autosuggestions`, `zsh-syntax-highlighting`, and the Oh My Zsh `git` plugin snippet) are declared in `zsh/.zshrc` and installed on first run.
 
+4.  **Atuin** ([atuin.sh](https://atuin.sh)) — shell history sync/search
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh
+    ```
+
 ## Installation
 
 ### 1. Clone the Repository
@@ -58,7 +63,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases bash fzf git kitty nvim starship tmux zsh bat
+stow aliases atuin bash fzf git kitty nvim starship tmux zsh bat
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).
@@ -87,6 +92,7 @@ git restore . # Discard changes if you didn't mean to keep the system version
 The repository is structured as Stow packages:
 
 - `aliases/` -> `~/.aliases`
+- `atuin/` -> `~/.config/atuin/config.toml`
 - `bat/` -> `~/.bat.conf` 
 - `bash/` -> `~/.bashrc`
 - `fzf/` -> `~/.fzf.zsh`
