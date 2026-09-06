@@ -42,3 +42,12 @@ alias oc-config='code ~/.local/share/opencode/auth.json'
 # Cargo
 alias cfmt='cargo fmt'
 alias crun='cargo run'
+
+# Silverstripe
+alias dbuild6='ddev exec vendor/bin/sake db:build --flush'
+alias dprocess6='ddev exec vendor/bin/sake tasks:ProcessJobQueueTask'
+alias dtask6='ddev exec vendor/bin/sake tasks'
+alias ddjob="ddev exec \"mysql -u root -p'root' -e 'TRUNCATE QueuedJobDescriptor;' db\""
+alias dpu='ddev exec vendor/bin/phpunit'
+
+alias dc="docker compose"

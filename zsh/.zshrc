@@ -71,3 +71,7 @@ PERSONAL_ENV="$HOME/personal/.env"
 
 # kimi-code
 export PATH="$HOME/.kimi-code/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"

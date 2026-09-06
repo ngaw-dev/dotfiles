@@ -1,5 +1,5 @@
 # ------------------------------------------
-# Paths
+# Paths — just add one path per line below
 # ------------------------------------------
 
 # Ensure unique paths
@@ -16,19 +16,19 @@ export MY_BRAIN_PATH="$HOME/personal/my-brain"
 
 # Prepend paths (Order matters: top is first in PATH)
 path=(
-  "/usr/local/opt/php@8.3/sbin"
-  "/usr/local/opt/php@8.3/bin"
-  "$HOME/.local/bin"
-  "$HOME/bin"
-  "$HOME/dotfiles/scripts"
-  "$HOME/.cargo/env"
-  "$HOME/.bun"
-  "/usr/local/opt/node@22/bin"
-  "$PNPM_HOME"
-  "/opt/homebrew/sbin"
-  "/opt/homebrew/bin"
-  "/usr/local/opt/node@22/bin"
-  "/usr/local/sbin"
+  /usr/local/opt/php@8.3/sbin
+  /usr/local/opt/php@8.3/bin
+  $HOME/.local/bin
+  $HOME/bin
+  $HOME/dotfiles/scripts
+  $HOME/.cargo/bin
+  $HOME/.cargo/env
+  $HOME/.bun
+  /usr/local/opt/node@22/bin
+  $PNPM_HOME
+  /opt/homebrew/sbin
+  /opt/homebrew/bin
+  /usr/local/sbin
   $path
 )
 

@@ -20,44 +20,17 @@
             "auto/best-free": {
               "name": "OmniRoute Auto (Best Free)"
             },
-            "zai/glm-5-turbo": {
-              "name": "OmniRoute ZAI GLM-5 Turbo"
+            "glm-combo": {
+              "name": "Combo - OmniRoute GLM Paid"
             },
-            "zai/glm-5.2": {
-              "name": "OmniRoute ZAI GLM-5.2"
+            "claude-combo": {
+              "name": "Combo - OmniRoute Claude"
             },
-            "zai/glm-5.1": {
-              "name": "OmniRoute ZAI GLM-5.1"
+            "google-combo": {
+              "name": "Combo - OmniRoute Google"
             },
-            "oc/deepseek-v4-flash-free": {
-              "name": "OmniRoute DeepSeek V4 Flash Free"
-            },
-            "oc/big-pickle": {
-              "name": "OmniRoute Big Pickle"
-            },
-            "kr/claude-haiku-4.5": {
-              "name": "OmniRoute Claude Haiku 4.5"
-            },
-            "kr/claude-sonnet-4.5": {
-              "name": "OmniRoute Claude Sonnet 4.5"
-            },
-            "kr/deepseek-3.2": {
-              "name": "OmniRoute DeepSeek 3.2"
-            },
-            "kr/minimax-m2.5": {
-              "name": "OmniRoute MiniMax M2.5"
-            },
-            "kr/glm-5": {
-              "name": "OmniRoute GLM-5"
-            },
-            "antigravity/gemini-3.6-flash-high": {
-              "name": "OmniRoute Gemini 3.6 Flash High"
-            },
-            "antigravity/gemini-3.6-flash-medium": {
-              "name": "OmniRoute Gemini 3.6 Flash Medium"
-            },
-            "antigravity/claude-sonnet-4-6": {
-              "name": "OmniRoute Claude Sonnet 4.6"
+            "ch-models": {
+                "name": "Combo - OmniRoute DeepSeek"
             }
         }
     }
