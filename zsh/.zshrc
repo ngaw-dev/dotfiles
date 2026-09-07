@@ -38,6 +38,17 @@ HISTFILE="$HOME/.zsh_history"
 setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 
 # ------------------------------------------
+# Option (Alt) key word motions — herdr-safe
+# Terminals send modified arrows as ESC[1;3D/C; bind explicitly
+# so they work inside herdr/tmux and nested shells.
+# ------------------------------------------
+bindkey $'\e[1;3D' backward-word    # Option+Left
+bindkey $'\e[1;3C' forward-word     # Option+Right
+bindkey $'\e^?' backward-kill-word  # Option+Backspace
+bindkey $'\e^H' backward-kill-word  # Option+Backspace (alt variant)
+bindkey $'\e[3;3~' kill-word        # Option+Delete
+
+# ------------------------------------------
 # Aliases
 # ------------------------------------------
 [ -f ~/.aliases ] && source ~/.aliases
