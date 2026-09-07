@@ -45,6 +45,39 @@ HISTFILE="$HOME/.zsh_history"
 setopt sharehistory hist_ignore_all_dups hist_reduce_blanks
 
 # ------------------------------------------
+# Herdr tab auto-title (folder name + tab number)
+# ------------------------------------------
+if [ -n "$HERDR_TAB_ID" ]; then
+  _herdr_rename_tab() {
+    local num
+    num=$(herdr tab list --workspace "$HERDR_WORKSPACE_ID" 2>/dev/null | jq -r --arg id "$HERDR_TAB_ID" '.result.tabs[] | select(.tab_id==$id) | .number')
+    if [ -n "$num" ]; then
+      herdr tab rename "$HERDR_TAB_ID" "$num: ${PWD:t}" &>/dev/null
+    else
+      herdr tab rename "$HERDR_TAB_ID" "${PWD:t}" &>/dev/null
+    fi
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook chpwd _herdr_rename_tab
+  _herdr_rename_tab
+fi
+
+# ------------------------------------------
+# Keybindings
+# ------------------------------------------
+bindkey '^K' clear-screen
+
+# ------------------------------------------
 # Aliases
 # ------------------------------------------
 [ -f ~/.aliases ] && source ~/.aliases
+
+# Move cursor word by word with Option + Arrows
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word
+
+# Delete word with Option + Delete (Backspace)
+bindkey "\e\x7f" backward-kill-word
+
+# Clear the entire line backward with Cmd + Delete
+bindkey "\x15" backward-kill-line
