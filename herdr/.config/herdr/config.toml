@@ -1,0 +1,18 @@
+[keys]
+prefix = "ctrl+space"
+split_vertical = "prefix+d"
+split_horizontal = "prefix+shift+d"
+new_tab = "prefix+shift+t"
+close_pane = "prefix+w"
+close_tab = "prefix+shift+w"
+
+[ui]
+window_title = "{hostname}: {workspace}"
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "herdr"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
