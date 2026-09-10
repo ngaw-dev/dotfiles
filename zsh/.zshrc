@@ -81,3 +81,14 @@ bindkey "\e\x7f" backward-kill-word
 
 # Clear the entire line backward with Cmd + Delete
 bindkey "\x15" backward-kill-line
+
+# ------------------------------------------
+# Option (Alt) key word motions — herdr-safe
+# Terminals send modified arrows as ESC[1;3D/C; bind explicitly
+# so they work inside herdr/tmux and nested shells.
+# ------------------------------------------
+bindkey $'\e[1;3D' backward-word    # Option+Left
+bindkey $'\e[1;3C' forward-word     # Option+Right
+bindkey $'\e^?' backward-kill-word  # Option+Backspace
+bindkey $'\e^H' backward-kill-word  # Option+Backspace (alt variant)
+bindkey $'\e[3;3~' kill-word        # Option+Delete
