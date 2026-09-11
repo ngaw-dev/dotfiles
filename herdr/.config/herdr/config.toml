@@ -23,8 +23,8 @@ close_workspace = "prefix+shift+n"
 workspace_picker = "prefix+alt+w"
 rename_workspace = "prefix+alt+shift+w"
 switch_workspace = "prefix+shift+1..9"
-navigate_workspace_up="prefix+k"
-navigate_workspace_down = "prefix+m"
+navigate_workspace_up = "k"
+navigate_workspace_down = "m"
 
 [ui]
 prompt_new_tab_name = false
