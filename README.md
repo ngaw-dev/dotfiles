@@ -122,10 +122,10 @@ Secrets are stored in a root `.env` file (not tracked by git). Copy the example 
 cp .env.example .env
 ```
 
-| Variable | Description |
-|----------|-------------|
+| Variable      | Description                                   |
+| ------------- | --------------------------------------------- |
 | `OP_VAULT_ID` | 1Password vault ID for API credential storage |
-| `GH_TOKEN` | GitHub personal access token |
+| `GH_TOKEN`    | GitHub personal access token                  |
 
 The `.env` file is automatically sourced by `.zshrc` on shell startup.
 
@@ -134,8 +134,10 @@ The `.env` file is automatically sourced by `.zshrc` on shell startup.
 - Create API credentials using `./scripts/op-create`
 - Reveal a secret: `op item get "gh-token" --field credential --reveal`
 
-# CMUX
-
-- https://github.com/ng-aw/ngaw-cmux copy of the script files (v0.2.0)
-- `cmux-base [workspace-name]` Creates two tab layout one with AI and Workspace folder
-- `cmux-workspace-layout [workspace-name]`Creates split layout with pnpm dev pnpm storybook and Workspace folder
+## Herdr Plugins installed
+- https://github.com/qu8n/herdr-automatic-rename
+  `curl -fsSL https://raw.githubusercontent.com/qu8n/herdr-automatic-rename/main/install.sh | bash`
+- https://github.com/thanhdat77/herdr-navigator
+  `herdr plugin install thanhdat77/herdr-navigator --ref v0.3.3 --yes`
+  `herdr plugin action invoke herdr-navigator.open`
+  `herdr plugin action invoke herdr-automatic-rename.reset`
