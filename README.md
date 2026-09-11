@@ -141,3 +141,4 @@ The `.env` file is automatically sourced by `.zshrc` on shell startup.
   `herdr plugin install thanhdat77/herdr-navigator --ref v0.3.3 --yes`
   `herdr plugin action invoke herdr-navigator.open`
   `herdr plugin action invoke herdr-automatic-rename.reset`
+- `herdr integration install opencode`
