@@ -3,18 +3,19 @@ onboarding = false
 prefix = "ctrl+space"
 split_vertical = "prefix+d"
 split_horizontal = "prefix+shift+d"
-new_tab = "prefix+shift+t"
+focus_pane_right = "prefix+right"
 close_pane = "prefix+w"
-close_tab = "prefix+shift+w"
+new_tab = "prefix+t"
+close_tab = "prefix+shift+t"
 rename_tab = "prefix+r"
+new_workspace = "prefix+n"
+close_workspace = "prefix+shift+n"
 workspace_picker = "prefix+alt+w"
 rename_workspace = "prefix+alt+shift+w"
-close_workspace = "prefix+alt+shift+d"
 resize_mode = "prefix+alt+r"
 
 [ui]
-window_title = "{hostname}: {workspace}"
-show_agent_labels_on_pane_borders = true
+prompt_new_tab_name = false
 
 [ui.toast]
 delivery = "herdr"
@@ -24,13 +25,7 @@ name = "catppuccin"
 auto_switch = false
 
 [[keys.command]]
-key = "prefix+up"
-type = "plugin_action"
-command = "cloudmanic.herdr-plus.projects"
-description = "herdr-plus: projects"
-
-[[keys.command]]
 key = "prefix+down"
 type = "plugin_action"
-command = "cloudmanic.herdr-plus.quick-actions"
-description = "herdr-plus: quick actions"
+command = "herdr-navigator.open"
+description = "jump to anything"

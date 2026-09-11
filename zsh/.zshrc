@@ -92,3 +92,8 @@ bindkey $'\e[1;3C' forward-word     # Option+Right
 bindkey $'\e^?' backward-kill-word  # Option+Backspace
 bindkey $'\e^H' backward-kill-word  # Option+Backspace (alt variant)
 bindkey $'\e[3;3~' kill-word        # Option+Delete
+
+# herdr-automatic-rename: live tab naming hook
+for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.zsh(N); do
+  source $_f; break
+done

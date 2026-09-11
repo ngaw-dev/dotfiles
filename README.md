@@ -19,11 +19,13 @@ This repository contains dotfiles and configurations for:
 Before installing, ensure you have the following installed on your machine:
 
 1.  **Homebrew** (Package Manager)
+
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 2.  **Core Packages**
+
     ```bash
     brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep jq
     brew install --cask warp
@@ -77,6 +79,7 @@ git restore . # Discard changes if you didn't mean to keep the system version
 ## Post-Installation
 
 1.  **Reload Zsh**
+
     ```bash
     source ~/.zshrc
     ```
@@ -93,7 +96,7 @@ The repository is structured as Stow packages:
 
 - `aliases/` -> `~/.aliases`
 - `atuin/` -> `~/.config/atuin/config.toml`
-- `bat/` -> `~/.bat.conf` 
+- `bat/` -> `~/.bat.conf`
 - `bash/` -> `~/.bashrc`
 - `fzf/` -> `~/.fzf.zsh`
 - `git/` -> `~/.gitconfig`
@@ -102,3 +105,13 @@ The repository is structured as Stow packages:
 - `starship/` -> `~/.config/starship.toml`
 - `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
+
+## Herdr Plugins installed
+
+- https://github.com/qu8n/herdr-automatic-rename
+  `curl -fsSL https://raw.githubusercontent.com/qu8n/herdr-automatic-rename/main/install.sh | bash`
+- https://github.com/thanhdat77/herdr-navigator
+  `herdr plugin install thanhdat77/herdr-navigator --ref v0.3.3 --yes`
+  `herdr plugin action invoke herdr-navigator.open`
+  `herdr plugin action invoke herdr-automatic-rename.reset`
+
