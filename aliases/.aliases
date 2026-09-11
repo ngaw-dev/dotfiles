@@ -30,6 +30,7 @@ alias hetzner-server="ssh amolw@65.21.52.133"
 
 # Opencode
 alias oc-config='code ~/.local/share/opencode/auth.json'
+alias oc="opencode"
 
 # Cargo
 alias cfmt='cargo fmt'
@@ -43,15 +44,3 @@ alias ddjob="ddev exec \"mysql -u root -p'root' -e 'TRUNCATE QueuedJobDescriptor
 alias dpu='ddev exec vendor/bin/phpunit'
 
 alias dc="docker compose"
-
-opencode() {
-    if [[ -n "$HERDR_TAB_ID" ]]; then
-        local current_label
-        current_label=$(herdr tab get "$HERDR_TAB_ID" 2>/dev/null | jq -r '.result.tab.label // empty' 2>/dev/null)
-        if [[ -n "$current_label" && "$current_label" != *"opencode"* ]]; then
-            herdr tab rename "$HERDR_TAB_ID" "${current_label} opencode" 2>/dev/null
-        fi
-    fi
-    command opencode "$@"
-}
-alias oc="opencode"
