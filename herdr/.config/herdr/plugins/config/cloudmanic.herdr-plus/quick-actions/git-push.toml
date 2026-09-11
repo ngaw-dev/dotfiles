@@ -1,0 +1,4 @@
+name = "Git Push"
+description = "git push"
+command = "git push"
+type = "command"

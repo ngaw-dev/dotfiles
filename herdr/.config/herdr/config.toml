@@ -1,3 +1,4 @@
+# https://herdr.dev/docs/config-reference/ -> Keybindings
 onboarding = false
 [keys]
 prefix = "ctrl+space"
@@ -8,7 +9,7 @@ split_vertical = "prefix+d"
 split_horizontal = "prefix+shift+d"
 focus_pane_right = "prefix+right"
 focus_pane_left = "prefix+left"
-close_pane = "prefix+shift+w"
+close_pane = "prefix+shift+p"
 
 # Tabs
 new_tab = "prefix+t"
@@ -18,9 +19,8 @@ next_tab = "prefix+>"
 previous_tab = "prefix+<"
 
 # Workspaces
-new_workspace = "prefix+n"
-close_workspace = "prefix+shift+n"
-workspace_picker = "prefix+alt+w"
+new_workspace = "prefix+w"
+# close_workspace = "prefix+shift+w" # Dangerous command
 switch_workspace = "prefix+shift+1..9"
 
 [ui]
@@ -37,3 +37,9 @@ key = "prefix+down"
 type = "plugin_action"
 command = "herdr-navigator.open"
 description = "jump to anything"
+
+[[keys.command]]
+key = "prefix+up"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "herdr-plus: quick actions"
