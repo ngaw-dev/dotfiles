@@ -21,7 +21,6 @@ previous_tab = "prefix+<"
 new_workspace = "prefix+n"
 close_workspace = "prefix+shift+n"
 workspace_picker = "prefix+alt+w"
-rename_workspace = "prefix+alt+shift+w"
 switch_workspace = "prefix+shift+1..9"
 
 [ui]
