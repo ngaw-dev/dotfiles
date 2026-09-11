@@ -47,6 +47,7 @@ bindkey $'\e[1;3C' forward-word     # Option+Right
 bindkey $'\e^?' backward-kill-word  # Option+Backspace
 bindkey $'\e^H' backward-kill-word  # Option+Backspace (alt variant)
 bindkey $'\e[3;3~' kill-word        # Option+Delete
+bindkey -r "^K"                     # Disable Cmd+K / Ctrl+K
 
 # ------------------------------------------
 # Aliases
