@@ -114,4 +114,3 @@ The repository is structured as Stow packages:
   `herdr plugin install thanhdat77/herdr-navigator --ref v0.3.3 --yes`
   `herdr plugin action invoke herdr-navigator.open`
   `herdr plugin action invoke herdr-automatic-rename.reset`
-

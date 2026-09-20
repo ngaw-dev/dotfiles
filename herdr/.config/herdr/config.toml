@@ -1,18 +1,27 @@
+# https://herdr.dev/docs/config-reference/ -> Keybindings
 onboarding = false
 [keys]
 prefix = "ctrl+space"
+resize_mode = "prefix+alt+r"
+
+# Panes
 split_vertical = "prefix+d"
 split_horizontal = "prefix+shift+d"
 focus_pane_right = "prefix+right"
-close_pane = "prefix+w"
+focus_pane_left = "prefix+left"
+close_pane = "prefix+shift+p"
+
+# Tabs
 new_tab = "prefix+t"
 close_tab = "prefix+shift+t"
 rename_tab = "prefix+r"
-new_workspace = "prefix+n"
-close_workspace = "prefix+shift+n"
-workspace_picker = "prefix+alt+w"
-rename_workspace = "prefix+alt+shift+w"
-resize_mode = "prefix+alt+r"
+next_tab = "prefix+>"
+previous_tab = "prefix+<"
+
+# Workspaces
+new_workspace = "prefix+w"
+# close_workspace = "prefix+shift+w" # Dangerous command
+switch_workspace = "prefix+shift+1..9"
 
 [ui]
 prompt_new_tab_name = false
@@ -22,10 +31,15 @@ delivery = "herdr"
 
 [theme]
 name = "catppuccin"
-auto_switch = false
 
 [[keys.command]]
 key = "prefix+down"
 type = "plugin_action"
 command = "herdr-navigator.open"
 description = "jump to anything"
+
+[[keys.command]]
+key = "prefix+up"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "herdr-plus: quick actions"
