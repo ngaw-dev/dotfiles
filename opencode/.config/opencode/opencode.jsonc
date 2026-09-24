@@ -11,28 +11,30 @@
         "glm-4.7": {}
       }
     },
-    "omni-route": {
-        "options": {
-            "baseURL": "http://localhost:20128/v1",
-            "apiKey": "{env:OMNI_ROUTE_API_KEY}"
+    "omniroute": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "OmniRoute",
+      "options": {
+        "baseURL": "http://localhost:20128/v1",
+        "apiKey": "{env:OMNI_ROUTE_API_KEY}"
+      },
+      "models": {
+        "auto/best-free": {
+          "name": "OmniRoute Auto (Best Free)"
         },
-        "models": {
-            "auto/best-free": {
-              "name": "OmniRoute Auto (Best Free)"
-            },
-            "glm-combo": {
-              "name": "Combo - OmniRoute GLM Paid"
-            },
-            "claude-combo": {
-              "name": "Combo - OmniRoute Claude"
-            },
-            "google-combo": {
-              "name": "Combo - OmniRoute Google"
-            },
-            "ch-models": {
-                "name": "Combo - OmniRoute DeepSeek"
-            }
+        "glm-combo": {
+          "name": "Combo - OmniRoute GLM Paid"
+        },
+        "claude-combo": {
+          "name": "Combo - OmniRoute Claude"
+        },
+        "google-combo": {
+          "name": "Combo - OmniRoute Google"
+        },
+        "ch-models": {
+          "name": "Combo - OmniRoute Chinese models"
         }
+      }
     }
   },
   "lsp": {

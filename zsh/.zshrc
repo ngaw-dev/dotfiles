@@ -61,14 +61,11 @@ bindkey -r "^K"                     # Disable Cmd+K / Ctrl+K
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
 # bun completions
-[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
+
+# Load env files and export variables
 
 # gtr - Git Worktree Runner - https://github.com/coderabbitai/git-worktree-runner
 _gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
@@ -80,9 +77,6 @@ ENV_FILE="$HOME/dotfiles/.env"
 [[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
 PERSONAL_ENV="$HOME/personal/.env"
 [[ -f "$PERSONAL_ENV" ]] && set -a && source "$PERSONAL_ENV" && set +a
-
-# kimi-code
-export PATH="$HOME/.kimi-code/bin:$PATH"
 
 . "$HOME/.atuin/bin/env"
 
