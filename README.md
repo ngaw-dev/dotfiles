@@ -6,7 +6,7 @@ Configuration files for my macOS development environment.
 
 This repository contains dotfiles and configurations for:
 
-- **Shell**: Zsh with Oh My Zsh
+- **Shell**: Zsh with Zinit
 - **Prompt**: Starship
 - **Version Control**: Git
 - **Tools**: FZF, Zoxide
@@ -40,16 +40,12 @@ Before installing, ensure you have the following installed on your machine:
     brew install 1password-cli
     ```
 
-3.  **Oh My Zsh**
+3.  **Zinit**
+
+    Zinit installs itself and its plugins automatically on first shell launch (requires network access). To pre-install it manually:
 
     ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
-
-4.  **Zsh Plugins**
-    ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone --depth 1 https://github.com/zdharma-continuum/zinit.git ~/.local/share/zinit/zinit.git
     ```
 
 ## Installation
