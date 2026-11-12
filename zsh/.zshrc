@@ -2,7 +2,7 @@
 #   ZSH — Warp Optimized Configuration
 # ==========================================
 export PLATFORM="mac"
-export EDITOR="nvim"
+export EDITOR="nano"
 
 # ------------------------------------------
 # Paths
