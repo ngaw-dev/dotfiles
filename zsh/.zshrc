@@ -2,7 +2,7 @@
 #   ZSH Configuration
 # ==========================================
 export PLATFORM="mac"
-export EDITOR="nvim"
+export EDITOR="nano"
 
 # ------------------------------------------
 # Paths
@@ -33,8 +33,7 @@ eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # ------------------------------------------
 # History
@@ -97,3 +96,4 @@ bindkey $'\e[3;3~' kill-word        # Option+Delete
 for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.zsh(N); do
   source $_f; break
 done
+export HERDR_SUBAGENT_PLACEMENT=tab

@@ -26,12 +26,14 @@ switch_workspace = "prefix+shift+1..9"
 [ui]
 prompt_new_tab_name = false
 
+status_indicators = "symbols"
 [ui.toast]
 delivery = "herdr"
 
 [theme]
-name = "catppuccin"
+name = "dracula"
 
+auto_switch = false
 [[keys.command]]
 key = "prefix+down"
 type = "plugin_action"
@@ -43,3 +45,6 @@ key = "prefix+up"
 type = "plugin_action"
 command = "cloudmanic.herdr-plus.quick-actions"
 description = "herdr-plus: quick actions"
+
+[ui.sidebar.spaces]
+row_gap = 1

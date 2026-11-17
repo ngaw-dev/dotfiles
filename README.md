@@ -65,7 +65,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases atuin bash fzf git herdr kitty nvim starship tmux zsh bat
+stow aliases atuin bash fzf git herdr kitty nvim starship tmux zsh bat zed
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).
@@ -105,6 +105,7 @@ The repository is structured as Stow packages:
 - `starship/` -> `~/.config/starship.toml`
 - `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
+- `zed/` -> `~/.config/zed/settings.json` & `~/.config/zed/keymap.json`
 
 ## Herdr Plugins installed
 

@@ -5,21 +5,13 @@
 # Ensure unique paths
 typeset -U path
 
-# PNPM
-export PNPM_HOME="$HOME/.local/share/pnpm"
-
 # Prepend paths (Order matters: top is first in PATH)
 path=(
-  "/usr/local/opt/php@8.3/sbin"
-  "/usr/local/opt/php@8.3/bin"
-  "$HOME/.antigravity/antigravity/bin"
   "$HOME/.local/bin"
-  "$HOME/bin"
-  "$PNPM_HOME"
   "/opt/homebrew/sbin"
   "/opt/homebrew/bin"
-  "/usr/local/opt/node@22/bin"
   "$HOME/.cargo/bin"
+  "/opt/homebrew/opt/rustup/bin"
   $path
 )
 
