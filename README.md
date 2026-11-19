@@ -6,11 +6,8 @@ Configuration files for my macOS development environment.
 
 This repository contains dotfiles and configurations for:
 
-- **Shell**: Zsh with Oh My Zsh
+- **Shell**: Zsh with Zinit
 - **Prompt**: Starship
-- **Editor**: Neovim
-- **Terminal**: Kitty, Ghostty, Cmux
-- **Multiplexer**: Tmux
 - **Version Control**: Git
 - **Tools**: FZF, Zoxide
 
@@ -27,33 +24,28 @@ Before installing, ensure you have the following installed on your machine:
 2.  **Core Packages**
 
     ```bash
-    brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep ghostty
-    brew install php@8.4 composer caddy node@22 pnpm
-    brew install ddev/ddev/ddev
-    brew install markdownlint-cli pv
-    brew install 1password-cli
+    brew install git zsh starship zoxide fzf stow fd bat eza ripgrep
     brew install --cask warp
     brew install --cask brave-browser
     brew install --cask 1password
     brew install --cask arc
+    brew install php@8.3 composer caddy node@22 pnpm
     brew install --cask orbstack
     brew install --cask sequel-ace
+    brew install ddev/ddev/ddev
     brew install --cask font-caskaydia-cove-nerd-font
-    brew install --cask caskhub
+    brew install markdownlint-cli pv
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
     curl -fsSL https://opencode.ai/install | bash
+    brew install 1password-cli
     ```
 
-3.  **Oh My Zsh**
+3.  **Zinit**
+
+    Zinit installs itself and its plugins automatically on first shell launch (requires network access). To pre-install it manually:
 
     ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
-
-4.  **Zsh Plugins**
-    ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone --depth 1 https://github.com/zdharma-continuum/zinit.git ~/.local/share/zinit/zinit.git
     ```
 
 ## Installation
@@ -71,7 +63,7 @@ Use GNU Stow to create symlinks for your configurations.
 
 ```bash
 # Install all dotfiles
-stow aliases bash fzf git kitty ghostty nvim starship tmux zsh bat pnpm cmux opencode atuin
+stow aliases bash fzf git herdr starship zsh bat pnpm opencode atuin
 ```
 
 **Note:** Stow will symlink files to your `$HOME` directory by default. If you have existing configuration files, you may need to back them up or delete them before running stow, or use the `--adopt` flag to overwrite them with your dotfiles versions (be careful, this modifies the source files in your repo).
@@ -90,12 +82,6 @@ git restore . # Discard changes if you didn't mean to keep the system version
     source ~/.zshrc
     ```
 
-2.  **Install Tmux Plugin Manager (TPM)**
-    ```bash
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    # Press Ctrl b + I in tmux to install plugins
-    ```
-
 ## Directory Structure
 
 The repository is structured as Stow packages:
@@ -106,13 +92,9 @@ The repository is structured as Stow packages:
 - `bat/` -> `~/.config/bat/config`
 - `fzf/` -> `~/.fzf.zsh`
 - `git/` -> `~/.gitconfig`
-- `ghostty/` -> `~/.config/ghostty/`
-- `kitty/` -> `~/.config/kitty/`
-- `cmux/` -> `~/.config/cmux/`
-- `nvim/` -> `~/.config/nvim/`
+- `herdr/` -> `~/.config/herdr/`
 - `pnpm/` -> `~/Library/Preferences/pnpm/rc`
 - `starship/` -> `~/.config/starship.toml`
-- `tmux/` -> `~/.tmux.conf` & `~/.config/tmux/`
 - `zsh/` -> `~/.zshrc` & `~/.paths`
 
 ## Environment Variables

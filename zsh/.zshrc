@@ -2,7 +2,7 @@
 #   ZSH — Warp Optimized Configuration
 # ==========================================
 export PLATFORM="mac"
-export EDITOR="nvim"
+export EDITOR="nano"
 
 # ------------------------------------------
 # Paths
@@ -10,17 +10,25 @@ export EDITOR="nvim"
 [ -f ~/.paths ] && source ~/.paths
 
 # ------------------------------------------
-# Oh-My-Zsh (Plugins only, Warp handles UI)
+# Zinit (plugin manager)
 # ------------------------------------------
-export ZSH="$HOME/.oh-my-zsh"
+typeset -A ZINIT
+ZINIT[COMPINIT_OPTS]=-u   # don't abort on insecure Homebrew completion dirs
 
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ ! -d "$ZINIT_HOME/.git" ]]; then
+  mkdir -p "${ZINIT_HOME:h}"
+  git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-source $ZSH/oh-my-zsh.sh
+if [[ -f "$ZINIT_HOME/zinit.zsh" ]]; then
+  source "$ZINIT_HOME/zinit.zsh"
+  zinit snippet OMZP::git
+  zinit light zsh-users/zsh-autosuggestions
+fi
+
+# Fallback if Zinit/plugins can't be fetched (e.g. offline first run)
+(( $+functions[compdef] )) || { autoload -Uz compinit && compinit -u; }
 
 # ------------------------------------------
 # Tools
@@ -86,3 +94,8 @@ eval "$(atuin init zsh)"
 for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.zsh(N); do
   source $_f; break
 done
+
+# zsh-syntax-highlighting must load last
+if (( $+functions[zinit] )); then
+  zinit light zsh-users/zsh-syntax-highlighting
+fi

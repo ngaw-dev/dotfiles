@@ -14,9 +14,6 @@ export NVM_DIR="$HOME/.nvm"
 # MY_BRAIN_PATH for mimir-wisdom-skill
 export MY_BRAIN_PATH="$HOME/personal/my-brain"
 
-# kimi-code
-export PATH="$HOME/.kimi-code/bin:$PATH"
-
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
