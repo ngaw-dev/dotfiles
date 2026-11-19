@@ -28,19 +28,20 @@ Before installing, ensure you have the following installed on your machine:
 
     ```bash
     brew install git zsh neovim tmux kitty starship zoxide fzf stow fd bat eza ripgrep ghostty
+    brew install php@8.4 composer caddy node@22 pnpm
+    brew install ddev/ddev/ddev
+    brew install markdownlint-cli pv
+    brew install 1password-cli
     brew install --cask warp
     brew install --cask brave-browser
     brew install --cask 1password
     brew install --cask arc
-    brew install php@8.3 composer caddy node@22 pnpm
     brew install --cask orbstack
     brew install --cask sequel-ace
-    brew install ddev/ddev/ddev
     brew install --cask font-caskaydia-cove-nerd-font
-    brew install markdownlint-cli pv
+    brew install --cask caskhub
     curl -O "https://cdn.bigmodel.cn/install/claude_code_zai_env.sh" && bash ./claude_code_zai_env.sh
     curl -fsSL https://opencode.ai/install | bash
-    brew install 1password-cli
     ```
 
 3.  **Oh My Zsh**

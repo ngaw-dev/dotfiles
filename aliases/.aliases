@@ -27,6 +27,7 @@ alias myip='echo "IPv4:" && curl -4 ifconfig.me && echo "" && echo "IPv6:" && cu
 alias nz-au-collab="ssh amolw@104.156.232.185"
 alias lamp-server="ssh amolw@108.61.185.77"
 alias hetzner-server="ssh amolw@65.21.52.133"
+alias lt-tools="ssh amolsw@89.167.69.8"
 
 # Opencode
 alias oc-config='code ~/.local/share/opencode/auth.json'
@@ -44,3 +45,6 @@ alias ddjob="ddev exec \"mysql -u root -p'root' -e 'TRUNCATE QueuedJobDescriptor
 alias dpu='ddev exec vendor/bin/phpunit'
 
 alias dc="docker compose"
+alias dup="docker compose up -d"
+alias ddown="docker compose down"
+alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"

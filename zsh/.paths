@@ -38,6 +38,7 @@ path=(
   $HOME/.bun
   /usr/local/opt/node@22/bin
   $PNPM_HOME
+  $PNPM_HOME/bin
   /opt/homebrew/sbin
   /opt/homebrew/bin
   /usr/local/sbin

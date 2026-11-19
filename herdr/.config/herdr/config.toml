@@ -26,12 +26,20 @@ switch_workspace = "prefix+shift+1..9"
 [ui]
 prompt_new_tab_name = false
 
+status_indicators = "symbols"
+[ui.sidebar.agents]
+row_gap = 1
+
+[ui.sidebar.spaces]
+row_gap = 1
+
 [ui.toast]
 delivery = "herdr"
 
 [theme]
-name = "catppuccin"
+name = "gruvbox-light"
 
+auto_switch = false
 [[keys.command]]
 key = "prefix+down"
 type = "plugin_action"

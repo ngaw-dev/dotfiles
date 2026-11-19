@@ -32,3 +32,6 @@ crust = "#11111b"
 [character]
 success_symbol = "[➜](green)"
 error_symbol = "[✘](red)"
+
+[gcloud]
+disabled = true
